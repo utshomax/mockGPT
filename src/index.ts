@@ -6,6 +6,12 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT;
 
+const routes = require('./routes');
+
+app.use(express.json());
+
+app.use('/api',routes);
+
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
 });
