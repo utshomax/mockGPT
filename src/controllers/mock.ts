@@ -13,11 +13,14 @@ export const getSympClass =async (req : Request, res : Response) => {
         let symptomsArray = symptoms.split(',');
         if(response){
             let responseArray = response.split(',').map((item)=>item.trim()).filter((item)=>symptomsArray.includes(item));
+            if(responseArray.length == 0){
+                return 'unable to classify';
+            }
             return responseArray.join(',');
         }
     }
     catch(err){
-        return '';
+        return 'unable to classify';
     }
 }
 
