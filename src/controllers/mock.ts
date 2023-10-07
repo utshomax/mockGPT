@@ -20,6 +20,7 @@ export const getSympClass =async (req : Request, res : Response) => {
         }
     }
     catch(err){
+        console.log(err)
         return 'unable to classify';
     }
 }
